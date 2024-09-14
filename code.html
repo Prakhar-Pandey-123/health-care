@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Healthcare Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navbar styling */
+    .navbar {
+      background-color: #007BFF;
+      overflow: hidden;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1;
+    }
+
+    .navbar a {
+      float: left;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+
+    .navbar a:hover {
+      background-color: #0056b3;
+    }
+
+    .dropdown {
+      float: left;
+      overflow: hidden;
+    }
+
+    .dropdown .dropbtn {
+      font-size: 16px;
+      border: none;
+      outline: none;
+      color: white;
+      padding: 14px 20px;
+      background-color: #007BFF;
+      cursor: pointer;
+    }
+
+    .navbar a, .dropdown-content a {
+      display: block;
+      color: white;
+      text-align: left;
+      padding: 12px 16px;
+      text-decoration: none;
+    }
+
+    .navbar a:hover, .dropdown-content a:hover {
+      background-color: #0056b3;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .hero-section {
+      background: url("abdulai-sayni-1QcLbPi3S7Y-unsplash.jpg") no-repeat center center/cover;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-section h1 {
+      font-size: 3em;
+      margin: 0;
+    }
+
+    .hero-section p {
+      font-size: 1.2em;
+      margin: 10px 0;
+    }
+
+    .section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .contact-section form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-section form input,
+    .contact-section form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .contact-section form button {
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .contact-section form button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Footer styling */
+    .footer {
+      background-color: #007BFF;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    /* Popup styling */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      max-width: 500px;
+      padding: 20px;
+      background-color: white;
+      border: 2px solid #007BFF;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      z-index: 2;
+    }
+
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+    .popup-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .popup-header h2 {
+      margin: 0;
+    }
+
+    .popup-close {
+      background: none;
+      border: none;
+      font-size: 1.5em;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact Us</a>
+    <div class="dropdown">
+      <button class="dropbtn">Specialties</button>
+      <div class="dropdown-content">
+        <a href="#">Orthopaedics</a>
+        <a href="#">Joint Replacement</a>
+        <a href="#">Bone Health</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <h1>Welcome to Our Healthcare Facility</h1>
+    <p>Your health is our priority. Learn more about our services and specialties.</p>
+  </div>
+
+  <!-- About Us Section -->
+  <div id="about" class="section">
+    <h2>About Us</h2>
+    <p>We are dedicated to providing high-quality healthcare services. Our team of professionals is here to support your health and well-being.</p>
+  </div>
+
+  <!-- Contact Us Section -->
+  <div id="contact" class="section contact-section">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+
+
+
+  <!-- Popup -->
+  <div class="popup" id="popup">
+    <div class="popup-header">
+      <h2>Important Announcement</h2>
+      <button class="popup-close" onclick="closePopup()">&times;</button>
+    </div>
+    <p>We are excited to announce our new services starting next month. Stay tuned for more details!</p>
+  </div>
+  
+  <div class="popup-overlay" id="popup-overlay" onclick="closePopup()"></div>
+
+  <!-- JavaScript for Popup and other interactions -->
+  <script>
+    window.onload = function() {
+      document.getElementById('popup').style.display = 'block';
+      document.getElementById('popup-overlay').style.display = 'block';
+    }
+
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+      document.getElementById('popup-overlay').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
